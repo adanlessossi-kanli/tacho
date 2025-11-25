@@ -34,8 +34,20 @@ export default function DashboardScreen() {
     }
   };
 
-  if (loading) return <View style={styles.container}><Text style={styles.loadingText}>Loading...</Text></View>;
-  if (error) return <View style={styles.container}><Text style={styles.errorText}>Error: {error}\n\nMake sure backend is running on 192.168.1.100:3000</Text></View>;
+  if (loading)
+    return (
+      <View style={styles.container}>
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    );
+  if (error)
+    return (
+      <View style={styles.container}>
+        <Text style={styles.errorText}>
+          Error: {error}\n\nMake sure backend is running on 192.168.1.100:3000
+        </Text>
+      </View>
+    );
 
   return (
     <ScrollView style={styles.container}>

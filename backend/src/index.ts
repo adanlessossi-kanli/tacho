@@ -3,6 +3,7 @@ import cors from 'cors';
 import { createServer } from 'http';
 import { initializeDatabase } from './database';
 import { setupWebSocket } from './websocket';
+import { scheduleJobs } from './jobs';
 import apiRoutes from './routes';
 
 const app = express();
@@ -19,6 +20,7 @@ app.get('/health', (req, res) => {
 });
 
 setupWebSocket(server);
+scheduleJobs();
 
 initializeDatabase().then(() => {
   server.listen(PORT, () => {
